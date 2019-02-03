@@ -28,6 +28,12 @@ def bubble_sort(items):
     # TODO: Repeat until all items are in sorted order
     # TODO: Swap adjacent items that are out of order
 
+    while not is_sorted(items):
+        for i in range(len(items) - 1):
+            if items[i] > items[i + 1]:
+                # swap 'em
+                items[i], items[i + 1] = items[i + 1], items[i]
+
 
 def selection_sort(items):
     """Sort given items by finding minimum item, swapping it with first
@@ -37,6 +43,27 @@ def selection_sort(items):
     # TODO: Repeat until all items are in sorted order
     # TODO: Find minimum item in unsorted items
     # TODO: Swap it with first unsorted item
+
+    if len(items) <= 1:
+        return
+
+    minimum = items[0]
+    minimum_index = 0
+
+    print(items, ' start')
+
+    for swaps in range(len(items)):
+        for i, item in enumerate(items[swaps:]):
+            if item <= minimum:
+                minimum = item
+                minimum_index = i + swaps
+                
+        print('swap {} with {}'.format(swaps, minimum_index))
+        items[swaps], items[minimum_index] = items[minimum_index], items[swaps]
+        print(items, swaps, ' swaps')
+
+    print(items, ' end')
+            
 
 
 def insertion_sort(items):

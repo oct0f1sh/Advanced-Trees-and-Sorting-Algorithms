@@ -215,7 +215,7 @@ def get_sort_function():
 
 
 # If using PyTest, change this variable to the sort function you want to test
-sort = selection_sort
+sort = counting_sort
 
 
 if __name__ == '__main__':
